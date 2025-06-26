@@ -42,17 +42,6 @@ export async function getCursoId(curso: string): Promise<ICurso> {
         throw new Error("Erro ao buscar cursos");
     }
 }
-export async function getAulas(): Promise<IAula[]> {
-    try {
-        const response = await axios.get<IAula[]>(
-            "https://api.origamid.online/cursos"
-        );
-        return response.data;
-    } catch (err) {
-        console.error("Erro ao buscar cursos:", err);
-        throw new Error("Erro ao buscar cursos");
-    }
-}
 export async function getAulaId(curso: string, aula: string): Promise<IAula> {
     try {
         const response = await axios.get<IAula>(

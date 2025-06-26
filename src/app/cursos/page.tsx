@@ -1,4 +1,5 @@
 import { getCursos } from "@/api/api";
+import Link from "next/link";
 import { use } from "react";
 
 export default function CursosPage() {
@@ -7,8 +8,11 @@ export default function CursosPage() {
         <div>
             <h1>Cursos</h1>
             <ul>
-                {cursos.map((item) => (
-                    <li key={item.id}>{item.nome}</li>
+                {cursos.map((curso) => (
+                    <li key={curso.id}>
+                        {" "}
+                        <Link href={`/cursos/${curso.slug}`}>{curso.nome}</Link>
+                    </li>
                 ))}
             </ul>
         </div>

@@ -1,3 +1,6 @@
+import { getAulaId } from "@/api/api";
+import { use } from "react";
+
 interface PageParams {
     params: {
         curso: string;
@@ -6,11 +9,12 @@ interface PageParams {
 }
 
 export default function AulaPage({ params }: PageParams) {
+    const aula = use(getAulaId(params.curso, params.aula));
     return (
         <div>
-            <h1>
-                Aula: {params.curso} / {params.aula}
-            </h1>
+            <h1>{aula.nome}</h1>
+            <p>{aula.descricao}</p>
+            <p>Tempo: {aula.tempo}</p>
         </div>
     );
 }
